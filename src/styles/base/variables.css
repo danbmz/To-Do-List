@@ -1,0 +1,12 @@
+:root{
+    /* ------ COLORES ----- */
+    --blanco: #ffffff;
+    --negro: #000000;
+    --gris: #5F6D70;
+    --azul: #55D0F0;
+    --naranja: #F08354;
+    --amarillo: #F0B754;
+    /* ------ FUENTES ------ */
+    --secondFont: "Nunito Sans", sans-serif;
+    --logoFont: "Edu AU VIC WA NT Arrows", cursive;
+}

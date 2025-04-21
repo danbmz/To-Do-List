@@ -1,0 +1,122 @@
+.task-list{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--blanco);
+    padding: 1rem;
+    list-style: none;
+    border-radius: 5px;
+    margin: 0;
+    max-height: 40rem;
+    overflow-y: auto;
+}
+.task-item {
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 12px;
+    background: white;
+  }
+  
+  .task-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .complete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #ccc; /* Color para tarea no completada */
+    padding: 0;
+  }
+  
+  .complete-btn.completed {
+    color: #4CAF50; /* Color para tarea completada */
+  }
+  
+  .task-title {
+    font-weight: bold;
+    font-size: 1.8rem;
+    color: var(--gris);
+    font-family: var(--secondFont);
+    margin-left: 1rem;
+  }
+  
+  .task-description {
+    color: var(--gris);
+    margin: 1rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+  
+  .task-footer {
+    display: flex;
+    flex-direction: column;
+    max-height: 0;           /* Inicialmente oculto */
+    overflow: hidden;        /* Oculta el contenido que excede */
+    transition: max-height 0.3s ease, opacity 0.2s ease; /* Animación */
+    opacity: 0;
+  }
+  
+  .task-date-buttons{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .task-date {
+    font-size: 1rem;
+    color: #888;
+  }
+  
+  .task-actions {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .edit-btn, .delete-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    padding: 4px;
+  }
+  
+  .edit-btn:hover { color: #2196F3; }
+  .delete-btn:hover { color: #f44336; }
+
+  .arrow-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666; /* Mismo color que edit/delete */
+    padding: 2px 0;
+    font-size: 2rem; /* Mismo tamaño */
+  }
+  
+  .arrow-btn:hover {
+    color: #2196F3; /* Mismo hover azul que el botón de editar */
+  }
+
+  /* Efecto rotacion del boton flecha */
+  .arrow-btn {
+    transition: transform 0.3s ease; /* Animación de 0.3 segundos */
+  }
+  
+  .rotated {
+    transform: rotate(180deg);
+  }
+
+  /* Efecto desplegar descripcion */
+  .visible {
+    max-height: 7.5rem;      /* Altura máxima estimada (ajústala) */
+    opacity: 1;
+  }
+  
+  .hidden {
+    opacity: 0;
+    display: none;
+  }

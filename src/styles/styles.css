@@ -1,0 +1,137 @@
+/* ---------- HEADER ---------- */
+.header{
+    background-color: var(--blanco);
+    border-radius: 15px 15px 15px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+}
+.header h1{
+    font-family: var(--logoFont);
+}
+.social-networks{
+    display: none;
+}
+
+/* -------- MAIN ------- */
+.main{
+    flex: 1 ;
+}
+/* ------------- Seccion de Formulario ------------------- */
+.section-contenedor{
+    display: flex;
+    flex-direction: column;
+}
+.form-section{
+    margin-bottom: 3rem;
+}
+.formulario{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.child-section input:not([type="submit"]), textarea{
+    padding: 2rem;
+    color: var(--negro);
+    background-color: var(--blanco);
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    outline: none;
+    font-size: 2rem;
+}
+.child-section textarea{
+    resize: none;
+    min-height: 10rem;
+}
+.input-group, .input-date {
+    position: relative;
+}
+.child-section label:not([class="date-label"]){
+    position: absolute;
+    left: 2rem;
+    top: 2rem;
+    font-size: 2rem;
+    color: var(--gris);
+    pointer-events: none;
+    transition: all 0.5s ease;
+}
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label,
+.input-group textarea:focus + label,
+.input-group textarea:not(:placeholder-shown) + label {
+  opacity: 0;
+  color: var(--negro);
+}
+.date-label{
+    font-size: 2rem;
+    color: var(--gris);
+}
+
+
+/* - Seccion de Actividades - El resto esta en taskItems.css - */
+.no-activities{
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 2rem 0 2rem 0;
+    color: var(--gris);
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+.task-conteiner{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+/* -------------- Footer -------------------- */
+.footer{
+    text-align: center;
+    font-weight: 700;
+    color: var(--blanco);
+    padding: 2rem;
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+/* ---------- Media Queries ----------------- */
+@media (min-width: 1024px) {
+    .social-networks{
+        display: inline-block;
+        margin-right: 3rem;
+    }
+    .header{
+        justify-content: space-between;
+    }
+    .header h1{
+        margin-left: 3rem;
+    }
+    .section-contenedor{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
+
+    .formulario{
+        gap: 2rem;
+    }
+
+    .input-group input:focus + label,
+    .input-group input:not(:placeholder-shown) + label,
+    .input-group textarea:focus + label,
+    .input-group textarea:not(:placeholder-shown) + label {
+        top: -1rem;
+        left: 0.4rem;
+        font-size: 1.5rem;
+        color: var(--negro);
+    }
+}

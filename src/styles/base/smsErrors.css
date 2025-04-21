@@ -1,0 +1,20 @@
+.error{
+    border: solid 2px red !important;
+}
+
+.custom-error {
+    display: none;
+    position: absolute;
+    background: red;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    bottom: -1rem;
+    left: 2rem;
+    transition: opacity 0.3s ease;
+  }
+  
+/* input:invalid + .custom-error {
+    border-color: red;
+} */

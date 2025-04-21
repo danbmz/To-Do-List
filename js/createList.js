@@ -1,0 +1,62 @@
+import checkBtnFuntc from "../components/checkIcon.js";
+import actualizarMensajeNoTasks from "../components/textNoTask.js";
+
+function createLi(title, description, date){
+    const content = `
+    <div class="task-header">
+        <div>
+            <button class="complete-btn">
+                <i class="fas fa-circle"></i> <!-- Icono no completado -->
+                <!-- <i class="fas fa-check-circle"></i> -->
+            </button>
+            <span class="task-title">${title}</span>
+        </div>
+        <button class="arrow-btn" title="Mostrar descripción">
+            <i class="fas fa-angle-down"></i>
+        </button>
+    </div>
+    
+    <div class="task-footer">
+        <p class="task-description">${description}</p>
+        <div class="task-date-buttons">
+            <span class="task-date">${date}</span>
+            <div class="task-actions">
+                <button class="edit-btn" title="Editar">
+                    <i class="fas fa-edit"></i>
+                </button>
+                <button class="delete-btn" title="Eliminar">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+    `;
+    const li = document.createElement('li'); //Creamos un LI
+    li.classList.add('task-item')
+    li.innerHTML = content; // Metemos dentro la estructura del taskItem
+
+    const ul = document.querySelector('.task-list') // Obtenemos el UL
+    ul.appendChild(li); // Agregamos como un nuevo hijo cada LI
+
+    // Check Boton
+    const checkBtn = li.querySelector(".complete-btn");
+    checkBtnFuntc(checkBtn);
+    actualizarMensajeNoTasks();
+
+    // Desplegar Descripcion
+    const btnArrow = li.querySelector('.arrow-btn');
+    btnArrow.addEventListener('click', () =>{ // Recuerda, no pasamos una funcion con parametros directamente porque se ejecuta en automatico, no espera a que se de click.
+        desplegarDesc(btnArrow);
+    })
+};
+
+// Desplegar descripcion Funcion.
+function desplegarDesc(btnArrow) {
+    // btnArrow.closest('.task-item') es lo mismo que acceder a li en la funcion de arriba, y de ahi buscar el elemento hijo que queremos obtener.
+    const footer = btnArrow.closest('.task-item').querySelector('.task-footer');
+
+    btnArrow.classList.toggle('rotated');
+    footer.classList.toggle('visible');
+};
+
+export default createLi;
