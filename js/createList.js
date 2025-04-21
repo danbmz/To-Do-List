@@ -1,4 +1,6 @@
 import checkBtnFuntc from "../components/checkIcon.js";
+import deleteBtnFunct from "../components/deleteIcon.js";
+import editBtnFunct from "../components/editIcon.js";
 import actualizarMensajeNoTasks from "../components/textNoTask.js";
 
 function createLi(title, description, date){
@@ -33,21 +35,31 @@ function createLi(title, description, date){
     `;
     const li = document.createElement('li'); //Creamos un LI
     li.classList.add('task-item')
+    li.id = crypto.randomUUID(); // Agregamos un ID unico
     li.innerHTML = content; // Metemos dentro la estructura del taskItem
 
     const ul = document.querySelector('.task-list') // Obtenemos el UL
     ul.appendChild(li); // Agregamos como un nuevo hijo cada LI
+    actualizarMensajeNoTasks();
 
     // Check Boton
     const checkBtn = li.querySelector(".complete-btn");
     checkBtnFuntc(checkBtn);
-    actualizarMensajeNoTasks();
 
     // Desplegar Descripcion
     const btnArrow = li.querySelector('.arrow-btn');
     btnArrow.addEventListener('click', () =>{ // Recuerda, no pasamos una funcion con parametros directamente porque se ejecuta en automatico, no espera a que se de click.
         desplegarDesc(btnArrow);
     })
+
+    // EDIT Boton
+    const editBtn = li.querySelector('.edit-btn');
+    editBtnFunct(editBtn);
+
+    // DELETE Boton
+    const deleteBtn = li.querySelector('.delete-btn');
+    deleteBtnFunct(deleteBtn);
+
 };
 
 // Desplegar descripcion Funcion.

@@ -3,8 +3,6 @@ function actualizarMensajeNoTasks() {
     const listaTasks = document.querySelectorAll('.task-item'); // Selecciona todos los <li> de tareas existentes
     const noTaskTexto = document.querySelector('.no-activities');
 
-    console.log(listaTasks);
-    console.log(noTaskTexto);
     if (listaTasks.length === 0) {
       noTaskTexto.classList.remove("hidden"); // Muestra el mensaje si NO hay tareas
     } else {
