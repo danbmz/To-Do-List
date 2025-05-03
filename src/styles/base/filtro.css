@@ -1,0 +1,83 @@
+.search-filter-container {
+    position: relative;
+    width: 100%;
+}
+
+.search-input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--blanco);
+    border-radius: 5px;
+}
+
+#search-input {
+    padding: 2rem;
+    flex-grow: 1;
+}
+
+.filter-toggle {
+    background: var(--blanco);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--blanco);
+    margin-right: 1rem;
+}
+
+.filter-options {
+    position: absolute;
+    top: 100%;
+    width: 50%;
+    right: 0px;
+    background: var(--blanco);
+    border: none;
+    border-radius: 5px;
+    padding: 0 1rem; /* Cambiado para la animación */
+    margin-top: 5px;
+    z-index: 100;
+    /* Para los efectos */
+    flex-direction: column;
+    max-height: 0;           /* Inicialmente oculto */
+    overflow: hidden;        /* Oculta el contenido que excede */
+    transition: max-height 1s ease, opacity 1s ease, padding 1s ease; /* Animación añadido padding */
+    opacity: 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Opcional: para mejor visualización */
+}
+
+.filter-options.show {
+    max-height: 15rem;      /* Altura máxima estimada (ajústala) */
+    opacity: 1;
+    padding: 1rem; /* Padding completo cuando está visible */
+}
+
+.filter-option {
+    display: flex;
+    justify-content: left;
+}
+
+.filters{
+    font-size: 1.6rem;
+    color: var(--gris);
+}
+.filters:hover{
+    color: var(--negro);
+}
+
+.filter-option:last-child {
+    margin-bottom: 0;
+}
+
+.filter-option input {
+    margin-right: 8px;
+}
+
+/*                         MEDIA QUERIES                  */
+
+@media (min-width: 768px) {
+    .filter-options{
+        width: 30%;
+    }
+}

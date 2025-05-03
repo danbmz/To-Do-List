@@ -31,7 +31,7 @@
     flex-direction: column;
     gap: 1rem;
 }
-.child-section input:not([type="submit"]), textarea{
+.child-section input:not([type="submit"], [type="checkbox"]), textarea{
     padding: 2rem;
     color: var(--negro);
     background-color: var(--blanco);
@@ -48,7 +48,7 @@
 .input-group, .input-date {
     position: relative;
 }
-.child-section label:not([class="date-label"]){
+.child-section label:not([class="date-label"], [class="filters"]){
     position: absolute;
     left: 2rem;
     top: 2rem;

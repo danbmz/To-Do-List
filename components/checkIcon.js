@@ -1,7 +1,7 @@
 import actualizarMensajeNoTasks from "../components/textNoTask.js";
 
 function checkBtnFuntc(btn){
-    btn.addEventListener('click' ,() => {
+
         const icon = btn.firstElementChild;
         icon.style.color = "#55D0F0cc";
         icon.classList.replace("fa-circle" ,"fa-check-circle");
@@ -16,8 +16,7 @@ function checkBtnFuntc(btn){
                 actualizarMensajeNoTasks(); // Si este va afuera se ejecuta antes de remover el item, pues este se elimina 1 segundos despues.
             }, 1000); // Espera a que termine la animación
             
-        }
-    });
+        };
 }
 
 export default checkBtnFuntc;

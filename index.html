@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="src/styles/base/botones.css">
     <link rel="stylesheet" href="src/styles/base/taskItems.css">
     <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="src/styles/base/filtro.css">
     <link rel="stylesheet" href="src/styles/base/smsErrors.css">
 
     <title>To Do List</title>
@@ -61,8 +62,42 @@
             <div class="child-section task-section">
                 <h2>Mis Actividades</h2>
                 <div class="task-conteiner">
-                    <div>
-                        <input type="search" name="search-input" id="search-input" placeholder="Buscar una Actividad">
+                    <div class="search-filter-container">
+                        <div class="search-input-wrapper">
+                            <input type="search" name="search-input" id="search-input" placeholder="Buscar una Actividad">
+                            <button class="filter-toggle" id="filter-toggle">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" viewBox="0 0 16 16">
+                                    <path d="M6 10.5a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zm-2-3a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11a.5.5 0 0 1-.5-.5z"/>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="filter-options" id="filter-options">
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-1" name="filter" value="option1">
+                                <label for="filter-1" class="filters">Todas</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-2" name="filter" value="option2">
+                                <label for="filter-2" class="filters">Pendientes</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-3" name="filter" value="option3">
+                                <label for="filter-3" class="filters">Por vencer</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-4" name="filter" value="option4">
+                                <label for="filter-4" class="filters">Vencidas</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-5" name="filter" value="option5">
+                                <label for="filter-5" class="filters">Completadas</label>
+                            </div>
+                            <div class="filter-option">
+                                <input type="checkbox" id="filter-6" name="filter" value="option6">
+                                <label for="filter-6" class="filters">Ordenar</label>
+                            </div>
+                        </div>
                     </div>
     
                     <ul id="task-list" class="task-list">

@@ -112,7 +112,7 @@
 
   /* Efecto desplegar descripcion */
   .visible {
-    max-height: 7.5rem;      /* Altura máxima estimada (ajústala) */
+    max-height: 10rem;      /* Altura máxima estimada (ajústala) */
     opacity: 1;
   }
   

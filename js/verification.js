@@ -1,4 +1,8 @@
-function verification(title, titleError, description, descriptionError, deadLine, deadlineError, errores) {
+const titleError = document.getElementById("title-error");
+const deadlineError = document.getElementById("deadline-error");   
+const descriptionError = document.getElementById("description-error");  
+
+function verification(title, description, deadLine, errores) {
     // Limpiar errores previos
     Object.keys(errores).forEach(key => delete errores[key]);
     

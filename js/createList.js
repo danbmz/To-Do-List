@@ -3,15 +3,14 @@ import deleteBtnFunct from "../components/deleteIcon.js";
 import editBtnFunct from "../components/editIcon.js";
 import actualizarMensajeNoTasks from "../components/textNoTask.js";
 
-function createLi(title, description, date){
+function createLi(tarea){
     const content = `
     <div class="task-header">
         <div>
             <button class="complete-btn">
-                <i class="fas fa-circle"></i> <!-- Icono no completado -->
-                <!-- <i class="fas fa-check-circle"></i> -->
+                <i class="${tarea.completada ? "fas fa-check-circle" : "fas fa-circle"}"></i> <!-- Icono no completado -->
             </button>
-            <span class="task-title">${title}</span>
+            <span class="task-title">${tarea.titulo}</span>
         </div>
         <button class="arrow-btn" title="Mostrar descripción">
             <i class="fas fa-angle-down"></i>
@@ -19,9 +18,9 @@ function createLi(title, description, date){
     </div>
     
     <div class="task-footer">
-        <p class="task-description">${description}</p>
+        <p class="task-description">${tarea.descripcion}</p>
         <div class="task-date-buttons">
-            <span class="task-date">${date}</span>
+            <span class="task-date">${tarea.fecha}</span>
             <div class="task-actions">
                 <button class="edit-btn" title="Editar">
                     <i class="fas fa-edit"></i>
@@ -44,7 +43,10 @@ function createLi(title, description, date){
 
     // Check Boton
     const checkBtn = li.querySelector(".complete-btn");
-    checkBtnFuntc(checkBtn);
+    checkBtn.addEventListener('click', () => {
+        tarea.completada = !tarea.completada; // Actualiza el array
+        checkBtnFuntc(checkBtn);
+    })
 
     // Desplegar Descripcion
     const btnArrow = li.querySelector('.arrow-btn');
