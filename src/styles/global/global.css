@@ -14,7 +14,7 @@ html{
 }
 body{
     font-size: 16px;
-    background: linear-gradient(45deg, #55D0F0cc, #F08354cc, #F0B754cc);
+    background: linear-gradient( #55D0F0cc, #F08354cc, #F0B754cc);
     font-family: var(--secondFont);
 }
 .contenedor{
