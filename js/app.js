@@ -53,14 +53,26 @@ const createTask = (e) =>{
 btn.addEventListener('click', createTask);
 // form.addEventListener('submit', createTask); // Cuando usamos este no se activa la verificacion que hemos hecho, al parecer para darle estilos o personalizar los mensajes de error habra que hacerlo diferente.
 
-// PRUEBA PARA ICONO DE FILTRADO
+// Funcion para Icono de Filtrado y Funciones
 document.addEventListener('DOMContentLoaded', function() {
     const filterToggle = document.getElementById('filter-toggle');
     const filterOptions = document.getElementById('filter-options');
-    
+    const radioButtons = document.querySelectorAll('input[name="filter"]');
+
     filterToggle.addEventListener('click', function() {
         filterOptions.classList.toggle('show');
-        // filterOptions.classList.toggle('visible');
+        if (filterOptions.classList.contains('show')) {
+            radioButtons.forEach(radio => {
+                radio.addEventListener('change', function() {
+                    if (this.checked) {
+                        const selectedValue = this.value;
+                        
+                        // Llama a la función de filtrado con el valor seleccionado
+                        aplicarFiltro(selectedValue);
+                    }
+                });
+            });
+        }
     });
     
     // Cerrar el menú al hacer clic fuera
@@ -70,3 +82,49 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// Objeto que facilita la seleccion de cada funcion de filtrado
+const filtros = {
+    'option1': () => mostrarTodasLasCards(),
+    'option2': () => filtrarPorPendientes(),
+    'option3': () => filtrarPorVencer(),
+    'option4': () => filtrarPorVencidas(),
+    'option5': () => filtrarPorCompletadas(),
+    'option6': () => OrdenarPorFecha()
+};
+
+// FUNCIONES DE FILTRADO
+function aplicarFiltro(valorSeleccionado) {
+    if (filtros[valorSeleccionado]) {
+        filtros[valorSeleccionado](); // Ejecuta la función correspondiente
+    } else {
+        mostrarTodasLasCards(); // Opción por defecto
+    }
+}
+// Mostrar todas las CARDS
+function mostrarTodasLasCards(){
+    const cards = document.querySelectorAll('.task-item');
+    cards.forEach(card => {
+        card.style.display = 'block';
+    });
+};
+// Mostrar tareas pendientes (con tiempo mayor a 2 dias);
+function filtrarPorPendientes(){
+    const cards = document.querySelectorAll('.task-item');
+    cards.forEach(card => {
+        const date = card.querySelector('.task-date').textContent;
+
+        const currentDate = new Date();
+        const inputDate = new Date(date);
+        currentDate.setHours(0, 0, 0, 0);
+        inputDate.setHours(0, 0, 0, 0);
+
+        // 3. Calcular la diferencia en milisegundos
+        const diferenciaMs = inputDate - currentDate;
+        
+        // 4. Convertir milisegundos a horas (1 hora = 3,600,000 ms)
+        const diferenciaHoras = diferenciaMs / 3600000;
+        
+        card.style.display = diferenciaHoras > 48 ? 'block' : 'none';
+    })
+};
